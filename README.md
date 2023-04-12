@@ -1,3 +1,3 @@
 # SpotifyClone
 
-Spotify music player clone , by using Spotify API , React , Context APi.
+Spotify music player clone , by using Spotify API , React , Context API.
