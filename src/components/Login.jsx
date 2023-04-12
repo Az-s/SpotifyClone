@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -29,9 +30,28 @@ const Container = styled.div`
 
 const Login = () => {
 
-  const handleClick = () => {
-    // const clientId = 'ed789d04de0f43738bb2cc5feffcb9c0';
-    const clientId = process.env.SPOTIFY_CLIENT_ID;
+  const handleClick = async () => {
+    const client_id = import.meta.env.VITE_APP_SPOTIFY_CLIENT_ID;
+    const redirect_url = "http://127.0.0.1:5173/";
+    const api_url = "https://accounts.spotify.com/authorize";
+    const scope = [
+      "user-read-private",
+      "user-read-email",
+      "user-modify-playback-state",
+      "user-read-playback-state",
+      "user-read-currently-playing",
+      "user-read-recently-played",
+      "user-top-read",
+    ];
+    // const response = await axios.get(
+    //   `${api_url}?client_id=${client_id}&redirect_uri=${redirect_url}&scope=${scope.join(
+    //     "%20"
+    //   )}&response_type=token&show_dialog=true`
+    // );
+    // window.location.href = response.request.responseURL;
+    window.location.href = `${api_url}?client_id=${client_id}&redirect_uri=${redirect_url}&scope=${scope.join(
+      " "
+    )}&response_type=token&show_dialog=true`;
   };
 
   return (
