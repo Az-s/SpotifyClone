@@ -28,13 +28,19 @@ const Container = styled.div`
 `;
 
 const Login = () => {
+
+  const handleClick = () => {
+    // const clientId = 'ed789d04de0f43738bb2cc5feffcb9c0';
+    const clientId = process.env.SPOTIFY_CLIENT_ID;
+  };
+
   return (
     <Container>
       <img
         src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png"
         alt="Spotify"
       />
-      <button type="button">Connect to Spotify</button>
+      <button type="button" onClick={handleClick} >Connect to Spotify</button>
     </Container>
   );
 };
